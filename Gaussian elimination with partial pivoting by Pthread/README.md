@@ -3,7 +3,7 @@ The code is in the file of gaussian.c.
 # 2. logic  
 ## (1) Pipeline  
  
-![flow](https://github.com/ZhixinLai/Parallel-Computing/blob/master/Gaussian%20elimination%20with%20partial%20pivoting%20by%20OpenMP/flow.png)    
+![flow](https://github.com/ZhixinLai/Parallel-Computing/blob/master/Gaussian%20elimination%20with%20partial%20pivoting%20by%20Pthread/flow.png)    
 
 <p align="center">Fig1 Logic flow chart</p>  
 ## (2) sub-processes (how to partition the data and how they are synchronized)  
@@ -29,9 +29,10 @@ According to the requirement, the start n = 512 and increase it by a factor of 2
 The results are shown in the Fig2, the (a)(b)(c)(d) shows the results with dimension of A being 512, 1024, 2048, 4096 respectively. For each graph, the x is the number of threads from 1 to 20 and the y means the total time of solving the equation.  
      
 
-![flow](https://github.com/ZhixinLai/Parallel-Computing/blob/master/Gaussian%20elimination%20with%20partial%20pivoting%20by%20OpenMP/flow.png)    
+![flow](https://github.com/ZhixinLai/Parallel-Computing/blob/master/Gaussian%20elimination%20with%20partial%20pivoting%20by%20Pthread/result.png)    
 
 <p align="center">Fig2 result</p>  
+
 # 5. Discussion  
 ### •	Influence of the thread number  
 As we can see from the Fig2, when the thread number grows, the consuming time gets lower first and grows then. The reason for time decreasing with thread growing is that each thread can work together and the work load of each thread is less than the total work load. It is easy to understand. However, when the thread number increases further, the consuming time gets higher, I guess the reason is that the process of assigning task to different threads, creating threads, joining threads, locking and other thread related manipulations consumes time. We can call the time cost as communication cost. When the thread number grows, the communication cost gets higher. Once the communication overhead compensates more than the time saved by multi-thread computing, the total time will grow with p grows.   
