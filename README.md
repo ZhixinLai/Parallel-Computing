@@ -3,3 +3,4 @@
 ### Gaussian elimination with partial pivoting by OpenMP  
 ### Gaussian elimination with partial pivoting by Pthread  
 ### One sided Jacobi for computing the EVD with MPI  
+### Three ways of Matrix multiplication with CUDA  
