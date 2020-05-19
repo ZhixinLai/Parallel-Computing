@@ -9,7 +9,7 @@ The code is in the file of jacobi.c, jacobi.sub, jacobi.sh.
 -----------
 (1) Pipeline
 
-
+![flow]()
 Fig1 Logic flow chart
 
 (2) sub-processes (how to partition the data and how they are synchronized)
