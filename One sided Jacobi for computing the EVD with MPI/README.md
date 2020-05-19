@@ -8,9 +8,9 @@ The code is in the file of jacobi.c, jacobi.sub, jacobi.sh.
 2. logic
 -----------
 (1) Pipeline
-<center>
-![flow](https://github.com/ZhixinLai/Parallel-Computing/blob/master/One%20sided%20Jacobi%20for%20computing%20the%20EVD%20with%20MPI/flow.png)  
-</center>
+
+![flow](https://github.com/ZhixinLai/Parallel-Computing/blob/master/One%20sided%20Jacobi%20for%20computing%20the%20EVD%20with%20MPI/flow.png)    
+
 <p align="center">Fig1 Logic flow chart</p>  
 
 (2) sub-processes (how to partition the data and how they are synchronized)  
