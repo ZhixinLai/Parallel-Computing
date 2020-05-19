@@ -8,8 +8,9 @@ The code is in the file of jacobi.c, jacobi.sub, jacobi.sh.
 2. logic
 -----------
 (1) Pipeline
-
+<p align="center">
 ![flow](https://github.com/ZhixinLai/Parallel-Computing/blob/master/One%20sided%20Jacobi%20for%20computing%20the%20EVD%20with%20MPI/flow.png)  
+</p>  
 <p align="center">Fig1 Logic flow chart</p>  
 
 (2) sub-processes (how to partition the data and how they are synchronized)  
@@ -25,8 +26,7 @@ Besides, in order to compare the achieved speed-ups versus a sequential code (no
 4. Result  
 The results are shown in the Fig3, it shows the results with dimension dim_n being 128, 256, 512, 1024 respectively. For each graph, the x is the number of task number npes from 0 to 64 and the y means the total run time.  
 ![flow](https://github.com/ZhixinLai/Parallel-Computing/blob/master/One%20sided%20Jacobi%20for%20computing%20the%20EVD%20with%20MPI/result.png)  
-Fig2 Results  
-
+<p align="center">Fig2 Results</p>  
 
 5. Discussion  
 •	Comparison between sequential computing and parallel computing  
