@@ -10,7 +10,7 @@ The code is in the file of jacobi.c, jacobi.sub, jacobi.sh.
 (1) Pipeline
 
 ![flow](https://github.com/ZhixinLai/Parallel-Computing/blob/master/One%20sided%20Jacobi%20for%20computing%20the%20EVD%20with%20MPI/flow.png)
-Fig1 Logic flow chart
+<center>Fig1 Logic flow chart</center>
 
 (2) sub-processes (how to partition the data and how they are synchronized)
 •	rotationComputation part
