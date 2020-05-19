@@ -2,7 +2,7 @@
 The code is in the file of gaussian.c.
 # 2. logic  
 ## (1) Pipeline
-![flow](https://github.com/ZhixinLai/Parallel-Computing/blob/master/One%20sided%20Jacobi%20for%20computing%20the%20EVD%20with%20MPI/flow.png)    
+![flow](https://github.com/ZhixinLai/Parallel-Computing/blob/master/Gaussian%20elimination%20with%20partial%20pivoting%20by%20OpenMP/flow.png)    
 
 <p align="center">Fig1 Logic flow chart</p>  
 
@@ -27,8 +27,10 @@ Besides, in order to compare the achieved speed-ups versus a sequential code (no
 # 4. Result
 The results are shown in the Fig2, the (a)(b)(c)(d) shows the results with dimension of A being 512, 1024, 2048, 4096 respectively. For each graph, the x is the number of threads from 0 to 20 and the y means the total time of solving the equation.  
   
+![flow](https://github.com/ZhixinLai/Parallel-Computing/blob/master/Gaussian%20elimination%20with%20partial%20pivoting%20by%20OpenMP/flow.png)    
 
-Fig2 Results  
+<p align="center">Fig2 Results</p>  
+
 # 5. Discussion
 ### •	Comparison between sequential computing and parallel computing
 As we can see from the result show before. P = 0 means the code runs in sequential way without OpenMP method. P = 1 means that the thread we use is 1 but use OpenMP. No matter how many dim_n is, the computing time of p = 1 is greater than p = 0, which means although they both use 1 thread, the extra manipulations for OpenMP cost time. After comparing the p = 0 and p > 1, the efficiency of parallel computing is better than sequential computing in most situations. There are some abnormal cases that computing time sharp increases, like the dim_n = 512 and p = 3.  
