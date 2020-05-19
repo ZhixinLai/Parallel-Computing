@@ -27,7 +27,7 @@ Besides, in order to compare the achieved speed-ups versus a sequential code (no
 # 4. Result
 The results are shown in the Fig2, the (a)(b)(c)(d) shows the results with dimension of A being 512, 1024, 2048, 4096 respectively. For each graph, the x is the number of threads from 0 to 20 and the y means the total time of solving the equation.  
   
-![flow](https://github.com/ZhixinLai/Parallel-Computing/blob/master/Gaussian%20elimination%20with%20partial%20pivoting%20by%20OpenMP/flow.png)    
+![flow](https://github.com/ZhixinLai/Parallel-Computing/blob/master/Gaussian%20elimination%20with%20partial%20pivoting%20by%20OpenMP/result.png)    
 
 <p align="center">Fig2 Results</p>  
 
