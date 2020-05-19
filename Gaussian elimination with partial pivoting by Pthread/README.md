@@ -3,7 +3,9 @@ The code is in the file of gaussian.c.
 # 2. logic  
 ## (1) Pipeline  
  
-Fig1 Logic flow chart  
+![flow](https://github.com/ZhixinLai/Parallel-Computing/blob/master/Gaussian%20elimination%20with%20partial%20pivoting%20by%20OpenMP/flow.png)    
+
+<p align="center">Fig1 Logic flow chart</p>  
 ## (2) sub-processes (how to partition the data and how they are synchronized)  
 ### •	1.1 Find the max value in A(i:n, i) and is m   
 Using p threads to find the max value in A(i:n, i). Each thread compares some values with the global max value and update the global max variable. If (n-i)%p == 0, each thread get (n-i)/p works, otherwise most threads get ((n-i)/p+1) works and one gets the left works. In order to avoid the race condition, I use the locking method with pthread_mutex_lock function. After all the thread finish their work, I use pthread_join function to get all the thread synchronized. The GetMaxValue in the appendix shows more details.  
@@ -27,10 +29,12 @@ According to the requirement, the start n = 512 and increase it by a factor of 2
 The results are shown in the Fig2, the (a)(b)(c)(d) shows the results with dimension of A being 512, 1024, 2048, 4096 respectively. For each graph, the x is the number of threads from 1 to 20 and the y means the total time of solving the equation.  
      
 
-Fig2 Results
-5. Discussion  
-•	Influence of the thread number  
+![flow](https://github.com/ZhixinLai/Parallel-Computing/blob/master/Gaussian%20elimination%20with%20partial%20pivoting%20by%20OpenMP/flow.png)    
+
+<p align="center">Fig2 result</p>  
+# 5. Discussion  
+### •	Influence of the thread number  
 As we can see from the Fig2, when the thread number grows, the consuming time gets lower first and grows then. The reason for time decreasing with thread growing is that each thread can work together and the work load of each thread is less than the total work load. It is easy to understand. However, when the thread number increases further, the consuming time gets higher, I guess the reason is that the process of assigning task to different threads, creating threads, joining threads, locking and other thread related manipulations consumes time. We can call the time cost as communication cost. When the thread number grows, the communication cost gets higher. Once the communication overhead compensates more than the time saved by multi-thread computing, the total time will grow with p grows.   
-•	Influence of the matrix dimension  
+### •	Influence of the matrix dimension  
 First conclusion: when the p set the same value, the run time grows with the n growing. It is easy to understand. If the n grows, the floating computing number will grow.  
 Second conclusion: when n grows, the local minimum point moves in the right direction and the growing trend after the local minimum point is lower. The p values of local minimum points are 3 4 4 8 for matrix dimension 512 1024 2048 4096 respectively. As we discussion in the former part, communication overhead time is Tw and float computing time is Tc.  The ratio of Tw to Tc is high when the matrix dimension is low, while the ratio is low when the matrix dimension is high. Therefore, when n = 4096, the Tw takes a small part of the total time(Tw + Tc) and thus the increasing trend is low when Tw grows.   
